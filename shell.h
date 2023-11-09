@@ -19,5 +19,9 @@ void constant_display(void);
 void bamel_print(const char *format);
 void run_command(const char *command);
 void user_command(char *command, size_t size);
+void display_environs(char **env);
+ssize_t input_buffer(info_t *info, char **buf, size_t *len);
+void removeComments(char *text);
+void printError(info_t *commandInfo, char *errorMsg);
 
 #endif

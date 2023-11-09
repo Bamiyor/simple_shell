@@ -65,7 +65,7 @@ char *_strncat(char *dest, const char *src, int n)
  * @s: The string to search
  * @c: The character to find
  *
- * Return: A pointer to the first occurence of the character or NULL if  not found
+ * Return: A pointer to the first event of the character or NULL if not found
  */
 
 char *_strchr(const char *s, int c)
@@ -74,7 +74,7 @@ char *_strchr(const char *s, int c)
 	{
 		if (*s == c)
 		{
-			return (char *)s;
+			return (char *s);
 		}
 		s++;
 	}

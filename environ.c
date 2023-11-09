@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /*
- * print_environment - prints the current environment
+ * print_environment : prints the current environment
  * @env: The environment variables
  */
 void print_environment(char **env)
