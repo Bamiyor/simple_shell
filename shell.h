@@ -23,5 +23,6 @@ void display_environs(char **env);
 ssize_t input_buffer(info_t *info, char **buf, size_t *len);
 void removeComments(char *text);
 void printError(info_t *commandInfo, char *errorMsg);
+void evaluate_command_chain(info_t *commandInfo,char *buf,size_t i,size_t len);
 
 #endif
