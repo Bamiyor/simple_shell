@@ -16,7 +16,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <errno.h>
-#include <sys/stst.h>
+#include <sys/stat.h>
 #include <limits.h>
 
 /**
