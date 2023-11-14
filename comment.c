@@ -33,7 +33,7 @@ return (result);
 /**
 * Function: printError - It prints an error message.
 * @commandInfo: The parameter & return info struct.
-* @errorString: String containing specified error type.
+* @errorMsg: String containing specified error type.
 */
 void printError(info_t *commandInfo, char *errorMsg)
 {
@@ -90,7 +90,7 @@ return (count);
 /**
 * Function: convertNumber - Converter function, a clone of itoa.
 * @num: Number.
-* @base: Base.
+* @outputBase: Base.
 * @flags: Argument flags.
 * Return: String.
 */
@@ -108,7 +108,8 @@ n = -num;
 sign = '-';
 }
 
-char *characterSet = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+char *characterSet = flags & CONVERT_LOWERCASE ?
+"0123456789abcdef" : "0123456789ABCDEF";
 ptr = &buffer[49];
 *ptr = '\0';
 
@@ -124,7 +125,7 @@ return (ptr);
 
 /**
 * Function: removeComments - Replaces the first instance of '#' with '\0'.
-* @buf: Address of the string to modify.
+* @text: Address of the string to modify.
 */
 void removeComments(char *text)
 {

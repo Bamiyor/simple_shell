@@ -65,67 +65,27 @@ bytes_read = input_buffer(info, &buf, &len);
 if (bytes_read == -1)
 return (-1);
 
-/*
-* We have commands left in the chain buffer
-*/
-
 if (len)
 {
-/*
-* Initialize a new iterator to the current buf position
-*/
 j = i;
-
-/*
-* Get a pointer for return
-*/
-
 p = buf + i;
-
 check_chain(info, buf, &j, i, len);
-
-/*
-* Iterate to semicolon or end
-*/
-
 while (j < len)
 {
 if (is_chain(info, buf, &j))
 break;
 j++;
 }
-
-/*
-* Increment past nulled ';'
-*/
-
 i = j + 1;
-
-/*
-* Reached the end of the buffer?
-*/
-
 if (i >= len)
 {
-/*
-* Reset position and length
-*/
 i = len = 0;
 info->cmd_buf_type = CMD_NORM;
 }
 *buf_p = p;
 return (_strlen(p));
 }
-
-/*
-* Not a chain; pass back buffer from custom_getline()
-*/
-
 *buf_p = buf;
-
-/*
-* Return length of buffer from custom_getline()
-*/
 return (bytes_read);
 }
 

@@ -30,7 +30,8 @@ return (1);
 c = *p;
 *p = 0;
 result = deleteAliasNode(&(commandInfo->alias)),
-getAliasNodeIndex(commandInfo->alias, nodeStartsWith(commandInfo->alias, aliasStr, -1));
+getAliasNodeIndex(commandInfo->alias, nodeStartsWith
+(commandInfo->alias, aliasStr, -1));
 *p = c;
 return (result);
 }
@@ -105,7 +106,8 @@ p = findCharacter(commandInfo->argv[i], '=');
 if (p)
 createAlias(info_t, commandInfo->argv[i]);
 else
-printAliasString(nodeStartsWith(commandInfo->alias, commandInfo->argv[i], '='));
+printAliasString(nodeStartsWith(commandInfo->alias,
+commandInfo->argv[i], '='));
 }
 return (0);
 }

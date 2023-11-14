@@ -65,7 +65,7 @@ extern char **environ;
  * 1 if using system getline()
  */
 
-#define(USE_GETLINE 0)
+#define USE_GETLINE 0
 #define(USE STRTOK 0)
 
 /**
@@ -85,7 +85,7 @@ extern char **environ;
 typedef struct liststr
 {
 int num;
-chat *str;
+char *str;
 struct liststr *next;
 }
 list_t;
@@ -103,7 +103,8 @@ void display_environs(char **env);
 ssize_t input_buffer(info_t *info, char **buf, size_t *len);
 void removeComments(char *text);
 void printError(info_t *commandInfo, char *errorMsg);
-void evaluate_command_chain(info_t *commandInfo, char *buf, size_t i, size_t len);
+void evaluate_command_chain(info_t *commandInfo, char
+*buf, size_t i, size_t len);
 
 /**
 * Structure passinfo - contains pseudo-arguments to pass into a function,
@@ -148,8 +149,7 @@ char **cmd_buf;
 int cmd_buf_type;
 int readfd;
 int histcount;
-}
-info_t;
+} info_t;
 {
 struct passinfo my_info = INFO_INIT;
 }
@@ -270,10 +270,11 @@ void remove_comments(char *buf);
  */
 
 int identify_chain(info_t *commandInfo, char *buf, size_t *p);
-void evaluate_command_chain(info_t *commandInfo, char *buf, size_t *p, size_t i, size_t len);
+void evaluate_command_chain(info_t *commandInfo, char
+*buf, size_t *p, size_t i, size_t len);
 int replace_aliases(info_t *commandInfo);
 int replace_variables(info_t *commandInfo);
-int replace_string(char **old, char *new) ;
+int replace_string(char **old, char *new);
 
 /**
  * histfile.c
@@ -305,7 +306,7 @@ void removeComments(char *text);
   * constant.c
   */
 
- void constant_display(void);
+void constant_display(void);
 
 /**
  * exit.c

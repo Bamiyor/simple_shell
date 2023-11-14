@@ -1,12 +1,14 @@
 #include "shell.h"
 
 /**
-* identify_chain - Checks if the current char in the buffer is a chain delimiter.
-* @param info: Parameter struct
-* @param buf: Character buffer
-* @param p: Address of the current position in buf
-* @return: 1 if chain delimiter, 0 otherwise
+* identify_chain- Checks if the current char in the
+* buffer is a chain delimiter.
+* @commandInfo: Parameter struct
+* @buf: Character buffer
+* @p: Address of the current position in buf
+* return: 1 if chain delimiter, 0 otherwise
 */
+
 int identify_chain(info_t *commandInfo, char *buf, size_t *p)
 {
 size_t currentPosition = *p;
@@ -37,14 +39,16 @@ return (1);
 }
 
 /**
-* It checks whether to continue chaining based on the last command's status.
-* @param info: Parameter structure
-* @param buf: Character buffer
-* @param p: Address of the current position in buf
-* @param i: Starting position in buf
-* @param len: Length of buf
+* evaluate_command_chain- It checks whether to continue chaining
+* based on the last command's status.
+* @commandInfo: Parameter structure
+* @buf: Character buffer
+* @p: Address of the current position in buf
+* @i: Starting position in buf
+* @len: Length of buf
 */
-void evaluate_command_chain(info_t *commandInfo, char *buf, size_t *p, size_t i, size_t len)
+void evaluate_command_chain(info_t *commandInfo,
+char *buf, size_t *p, size_t i, size_t len)
 {
 size_t currentPosition = *p;
 
@@ -69,9 +73,9 @@ currentPosition = len;
 }
 
 /**
-* Replaces aliases in the tokenized string.
-* @param info: Parameter structure
-* @return: 1 if replaced, 0 otherwise
+* replace_aliases-Replaces aliases in the tokenized string.
+* @commandInfo: Parameter structure
+* return: 1 if replaced, 0 otherwise
 */
 int replace_aliases(info_t *commandInfo)
 {
@@ -97,9 +101,9 @@ return (1);
 }
 
 /**
-* Replaces variables in the tokenized string.
-* @param info: Parameter structure
-* @return: 1 if replaced, 0 otherwise
+* replace_variables- Replaces variables in the tokenized string.
+* @commandInfo: Parameter structure
+* return: 1 if replaced, 0 otherwise
 */
 int replace_variables(info_t *commandInfo)
 {
@@ -113,7 +117,8 @@ continue;
 
 if (!_strcmp(commandInfo->argv[iteration], "$?"))
 {
-replace_string(&(commandInfo->argv[i]), _strdup(convert_number(commandInfo->status, 10, 0)));
+replace_string(&(commandInfo->argv[i]), _strdup
+(convert_number(commandInfo->status, 10, 0)));
 continue;
 }
 if (!_strcmp(commandInfo->argv[iteration], "$$"))
@@ -124,7 +129,8 @@ continue;
 envNode = node_starts_with(commandInfo->env, &info->argv[iteration][1], '=');
 if (envNode)
 {
-replace_string(&(commandInfo->argv[i]), _strdup(_strchr(envNode->str, '=') + 1));
+replace_string(&(commandInfo->argv[i]), _strdup
+(_strchr(envNode->str, '=') + 1));
 continue;
 }
 replace_string(&commandInfo->argv[i], _strdup(""));
@@ -133,9 +139,9 @@ return (0);
 }
 
 /**
-* Replaces a string.
-* @param old: Address of the old string
-* @param new: New string
+* replace_string- Replaces a string.
+* @old: Address of the old string
+* @new: New string
 * @return: 1 if replaced, 0 otherwise
 */
 int replace_string(char **old, char *new)
