@@ -37,9 +37,9 @@ return (result);
 */
 void printError(info_t *commandInfo, char *errorMsg)
 {
-_eputs(commandInfo->filename);
+_eputs(commandInfo->fname);
 _eputs(": ");
-printDecimal(commandInfo->lineCount, STDERR_FILENO);
+printDecimal(commandInfo->line_count, STDERR_FILENO);
 _eputs(": ");
 _eputs(commandInfo->argv[0]);
 _eputs(": ");
@@ -101,14 +101,22 @@ static char buffer[50];
 char sign = 0;
 char *ptr;
 unsigned long n = num;
+int outputBase = 2
 
 if (!(flags & CONVERT_UNSIGNED) && num < 0)
 {
 n = -num;
 sign = '-';
 }
-
-char *characterSet = flags & CONVERT_LOWERCASE ?
+char *characterSet;
+if (flags & CONVERT_LOWERCASE)
+{
+characterSet = lowercaseArray;
+}
+else
+{
+characterSet = uppercaseArray;
+}
 "0123456789abcdef" : "0123456789ABCDEF";
 ptr = &buffer[49];
 *ptr = '\0';
@@ -126,9 +134,11 @@ return (ptr);
 /**
 * Function: removeComments - Replaces the first instance of '#' with '\0'.
 * @text: Address of the string to modify.
+* @buf: buffer
 */
 void removeComments(char *text)
 {
+char buf[MAX_SIZE];
 int i;
 
 for (i = 0; buf[i] != '\0'; i++)

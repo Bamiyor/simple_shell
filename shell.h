@@ -66,7 +66,7 @@ extern char **environ;
  */
 
 #define USE_GETLINE 0
-#define(USE STRTOK 0)
+#define USE_STRTOK 0
 
 /**
  * file i/o constants
@@ -88,23 +88,7 @@ int num;
 char *str;
 struct liststr *next;
 }
-list_t;
-
-
-/*
- * This module encompasses a set of functions for user interaction and command
- */
-
-void constant_display(void);
-void bamel_print(const char *format);
-void run_command(const char *command);
-void user_command(char *command, size_t size);
-void display_environs(char **env);
-ssize_t input_buffer(info_t *info, char **buf, size_t *len);
-void removeComments(char *text);
-void printError(info_t *commandInfo, char *errorMsg);
-void evaluate_command_chain(info_t *commandInfo, char
-*buf, size_t i, size_t len);
+list
 
 /**
 * Structure passinfo - contains pseudo-arguments to pass into a function,
@@ -122,6 +106,7 @@ void evaluate_command_chain(info_t *commandInfo, char
 * @history: the history node
 * @alias: the alias node
 * @env_changed: on if environ was changed
+* @info_t: represents a structure
 * @status: the return status of the last exec'd command
 * @cmd_buf: address of pointer to cmd_buf, on if chaining
 * @cmd_buf_type: CMD_type ||, &&, ;
@@ -150,6 +135,7 @@ int cmd_buf_type;
 int readfd;
 int histcount;
 } info_t;
+
 {
 struct passinfo my_info = INFO_INIT;
 }
@@ -235,7 +221,7 @@ char *string_concatenate(char *dest, char *src);
 
 char *string_copy(char *dest, char *src);
 char *string_duplicate(const char *str);
-void print _string(char *str);
+void print_string(char *str);
 int _putchar(char c);
 
 /**
@@ -324,7 +310,8 @@ ssize_t input_buffer(info_t info, char *buf, size_t *len);
 ssize_t get_input(info_t *info);
 ssize_t read_buffer(info_t *info, char *buf, size_t *i);
 int custom_getline(info_t info, char *ptr, size_t *length);
-void sigintHandler(_attribute_((unused))int sig_num);
+void sigintHandler(__attribute__((unused)) int sig_num);
+
 
 /**
  * LLops.c
