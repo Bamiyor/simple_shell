@@ -106,8 +106,13 @@ fork_command(info);
 }
 else
 {
+<<<<<<< HEAD
 if ((interactive(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/')
 		&& is_cmd(info, info->argv[0]))
+=======
+if ((interactive(info) || _getenv(info, "PATH=") ||
+info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
+>>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 fork_command(info);
 else if (*(info->arg) != '\n')
 {

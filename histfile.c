@@ -103,7 +103,11 @@ return (info->histcount);
 }
 
 /**
+<<<<<<< HEAD
 * build_historyList - adds entry to a history linked list
+=======
+* build_historyList: Adds entry to a history linked list
+>>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 * @info: Structure containing potential arguments. Used to maintain
 * @buf: buffer
 * @linecount: the history linecount, histcount
@@ -124,7 +128,11 @@ return (0);
 }
 
 /**
+<<<<<<< HEAD
 * update_historyNumbers - updates the history linked list after changes
+=======
+* update_historyNumbers: Updates the history linked list after changes
+>>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 * @info: Structure containing potential arguments. Used to maintain
 *
 * Return: the new histcount

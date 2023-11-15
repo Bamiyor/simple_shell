@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* Copies a string
+* string_copy- Copies a string
 * @dest: the destination
 * @src: the source
 *
@@ -23,7 +23,7 @@ return (dest);
 }
 
 /**
-* It duplicates a string
+* string_duplicate- It duplicates a string
 * @str: the string to duplicate
 *
 * Return: pointer to the duplicated string
@@ -46,7 +46,7 @@ return (result);
 }
 
 /**
-*Prints an input string
+*print _string - Prints an input string
 *@str: the string to be printed
 *
 * Return: Nothing

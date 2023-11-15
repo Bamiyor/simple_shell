@@ -1,9 +1,12 @@
 #include "shell.h"
 
 /*
+ * Function: print_environment
+ *
  * print_environment : prints the current environment
  * @env: The environment variables
  */
+
 void print_environment(char **env)
 {
 	for (int i = 0; env[i] != NULL; i++)

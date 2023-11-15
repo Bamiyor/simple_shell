@@ -32,7 +32,7 @@ char *_strncpy(char *dest, const char *src, int n)
 
 /**
  * _strncat - Concatenate two strings with a specified length
- * @dest; The destination string
+ * @dest: The destination string
  * @src: The source string
  * @n: The maximum number of chracters to append from src
  *

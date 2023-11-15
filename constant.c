@@ -1,8 +1,9 @@
 #include "shell.h"
+
 /*
  * @brief Orchestrating a constant display operation
  *
- * constant_display : This function does not yield any return value. Its
+ * @constant_display- This function does not yield any return value. Its
  * precise functionality must be defined elsewhere in your code to
  * identify the specific actions it should carry out.
  *

@@ -56,7 +56,7 @@ return ((char *)haystack);
 }
 
 /**
-* Concatenates two strings
+* string_concatenate- Concatenates two strings
 * @dest: the destination buffer
 * @src: the source buffer
 *

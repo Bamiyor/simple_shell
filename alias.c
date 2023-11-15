@@ -28,8 +28,14 @@ if (!p)
 return (1);
 c = *p;
 *p = 0;
+<<<<<<< HEAD
 result = deleteAliasNode(&(commandInfo->alias))
 int index = nodeStartsWith(commandInfo->alias, aliasStr, -1);
+=======
+result = deleteAliasNode(&(commandInfo->alias)),
+getAliasNodeIndex(commandInfo->alias, nodeStartsWith
+(commandInfo->alias, aliasStr, -1));
+>>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 *p = c;
 return (result);
 }
@@ -104,7 +110,12 @@ p = findCharacter(commandInfo->argv[i], '=');
 if (p)
 createAlias(info_t, commandInfo->argv[i]);
 else
+<<<<<<< HEAD
 printf("%d", P(nodeS(commandInfo->alias, commandInfo->argv[i], '=')));
+=======
+printAliasString(nodeStartsWith(commandInfo->alias,
+commandInfo->argv[i], '='));
+>>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 }
 return (0);
 }

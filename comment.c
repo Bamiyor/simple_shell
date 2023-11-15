@@ -38,9 +38,9 @@ return (result);
 
 void printError(info_t *commandInfo, char *errorMsg)
 {
-_eputs(commandInfo->filename);
+_eputs(commandInfo->fname);
 _eputs(": ");
-printDecimal(commandInfo->lineCount, STDERR_FILENO);
+printDecimal(commandInfo->line_count, STDERR_FILENO);
 _eputs(": ");
 _eputs(commandInfo->argv[0]);
 _eputs(": ");
@@ -90,6 +90,7 @@ return (count);
 }
 
 /**
+<<<<<<< HEAD
  * convertNumber - Converter function, a clone of itoa.
  * @num: Number.
  * @base: Base.
@@ -98,20 +99,43 @@ return (count);
  */
 
 char *convertNumber(long int num, int base, int flags)
+=======
+* Function: convertNumber - Converter function, a clone of itoa.
+* @num: Number.
+* @outputBase: Base.
+* @flags: Argument flags.
+* Return: String.
+*/
+char *convertNumber(long int num, int outputBase, int flags)
+>>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 {
 static char *array;
 static char buffer[50];
 char sign = 0;
 char *ptr;
 unsigned long n = num;
+int outputBase = 2
 
 if (!(flags & CONVERT_UNSIGNED) && num < 0)
 {
 n = -num;
 sign = '-';
 }
+<<<<<<< HEAD
 
 char *cs = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+=======
+char *characterSet;
+if (flags & CONVERT_LOWERCASE)
+{
+characterSet = lowercaseArray;
+}
+else
+{
+characterSet = uppercaseArray;
+}
+"0123456789abcdef" : "0123456789ABCDEF";
+>>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 ptr = &buffer[49];
 *ptr = '\0';
 
@@ -126,12 +150,20 @@ return (ptr);
 }
 
 /**
+<<<<<<< HEAD
  * removeComments - Replaces the first instance of '#' with '\0'.
  * @text: Address of the string to modify.
  */
 
+=======
+* Function: removeComments - Replaces the first instance of '#' with '\0'.
+* @text: Address of the string to modify.
+* @buf: buffer
+*/
+>>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 void removeComments(char *text)
 {
+char buf[MAX_SIZE];
 int i;
 
 for (i = 0; buf[i] != '\0'; i++)
