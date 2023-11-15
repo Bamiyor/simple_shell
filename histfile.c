@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* get_history_file: Obtains the history file
+* get_history_file - Obtains the history file
 * @info: parameter struct
 *
 * Return: allocated string containg history file
@@ -25,7 +25,7 @@ return (buf);
 }
 
 /**
-* write_history - creates a file, or appends to an existing file
+* writeHistory - creates a file, or appends to an existing file
 * @info: the parameter struct
 *
 * Return: 1 on success, else -1
@@ -103,7 +103,7 @@ return (info->histcount);
 }
 
 /**
-* Adds entry to a history linked list
+* build_historyList - adds entry to a history linked list
 * @info: Structure containing potential arguments. Used to maintain
 * @buf: buffer
 * @linecount: the history linecount, histcount
@@ -124,7 +124,7 @@ return (0);
 }
 
 /**
-* Updates the history linked list after changes
+* update_historyNumbers - updates the history linked list after changes
 * @info: Structure containing potential arguments. Used to maintain
 *
 * Return: the new histcount

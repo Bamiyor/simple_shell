@@ -107,6 +107,7 @@ i = j + 1;
 
 if (i >= len)
 {
+
 /*
 * Reset position and length
 */
@@ -116,7 +117,6 @@ info->cmd_buf_type = CMD_NORM;
 *buf_p = p;
 return (_strlen(p));
 }
-
 /*
 * Not a chain; pass back buffer from custom_getline()
 */

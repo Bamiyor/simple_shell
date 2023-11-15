@@ -17,9 +17,10 @@ return (dest);
 }
 
 /**
-*release_string_array: Releases a string of strings
-* @str_array: string of strings
-*/
+ * release_string_array - Releases a string of strings
+ * @str_array: string of strings
+ */
+
 void release_string_array(char **str_array)
 {
 char **a = str_array;

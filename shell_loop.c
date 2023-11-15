@@ -43,7 +43,7 @@ return (builtin_ret);
 }
 
 /**
-* locateBuitInCommand - finds a builtin command
+* locateBuiltInCommand - finds a builtin command
 * @info: the parameter & return info struct
 *
 * Return: -1 if builtin not found,
@@ -106,7 +106,8 @@ fork_command(info);
 }
 else
 {
-if ((interactive(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
+if ((interactive(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/')
+		&& is_cmd(info, info->argv[0]))
 fork_command(info);
 else if (*(info->arg) != '\n')
 {

@@ -31,10 +31,11 @@ return (result);
 }
 
 /**
-* Function: printError - It prints an error message.
+* printError - It prints an error message.
 * @commandInfo: The parameter & return info struct.
-* @errorString: String containing specified error type.
+* @errorMsg: String containing specified error type.
 */
+
 void printError(info_t *commandInfo, char *errorMsg)
 {
 _eputs(commandInfo->filename);
@@ -47,11 +48,12 @@ _eputs(errorMsg);
 }
 
 /**
-* Function: printDecimal - It prints a decimal (integer) number (base 10).
+* printDecimal - It prints a decimal (integer) number (base 10).
 * @input: The input.
 * @fileDescriptor: The file descriptor to write to.
 * Return: Number of characters printed.
 */
+
 int printDecimal(int input, int fileDescriptor)
 {
 int (*outputChar)(char) = _putchar;
@@ -88,13 +90,14 @@ return (count);
 }
 
 /**
-* Function: convertNumber - Converter function, a clone of itoa.
-* @num: Number.
-* @base: Base.
-* @flags: Argument flags.
-* Return: String.
-*/
-char *convertNumber(long int num, int outputBase, int flags)
+ * convertNumber - Converter function, a clone of itoa.
+ * @num: Number.
+ * @base: Base.
+ * @flags: Argument flags.
+ * Return: String.
+ */
+
+char *convertNumber(long int num, int base, int flags)
 {
 static char *array;
 static char buffer[50];
@@ -108,7 +111,7 @@ n = -num;
 sign = '-';
 }
 
-char *characterSet = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+char *cs = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 ptr = &buffer[49];
 *ptr = '\0';
 
@@ -123,9 +126,10 @@ return (ptr);
 }
 
 /**
-* Function: removeComments - Replaces the first instance of '#' with '\0'.
-* @buf: Address of the string to modify.
-*/
+ * removeComments - Replaces the first instance of '#' with '\0'.
+ * @text: Address of the string to modify.
+ */
+
 void removeComments(char *text)
 {
 int i;

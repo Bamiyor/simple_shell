@@ -1,13 +1,16 @@
 #include "shell.h"
 
 /*
- * Main : it is the entry point
- * 'argv' is n array of strings containing command-line arguments
- * 'argc' shows the count of command-line arguments.
+ * main - this is the entry point of the shell program.
+ *
+ * This function initializes the shell
+ * @argv: is n array of strings containing command-line arguments
+ * @argc: shows the count of command-line arguments.
  *
  * You can manipulate and access command-line arguments here.
  */
-int main(int argc, char **argv[])
+
+int main(int argc, char **argv)
 {
 info_t info[] = { INFO_INIT };
 int fd = 2;
