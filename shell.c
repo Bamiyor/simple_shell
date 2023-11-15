@@ -1,13 +1,13 @@
 #include "shell.h"
 
-/*
+/**
  * main - this is the entry point of the shell program.
  *
- * This function initializes the shell
+ * Description: This function initializes the shell
  * @argv: is n array of strings containing command-line arguments
  * @argc: shows the count of command-line arguments.
  *
- * You can manipulate and access command-line arguments here.
+ * Return: 0
  */
 
 int main(int argc, char **argv)

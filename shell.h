@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef _SHELL_H_
+#define _SHELL_H_
 
 /*
  * This C program incoporates a set of standard libraries for different
@@ -8,7 +8,7 @@
  */
 
 #include <stdio.h>
-#include <sys/stst.h>
+#include <sys/stat.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -17,10 +17,6 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <errno.h>
-<<<<<<< HEAD
-=======
-#include <sys/stat.h>
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 #include <limits.h>
 
 /**
@@ -92,7 +88,7 @@ int num;
 char *str;
 struct liststr *next;
 }
-list
+list_t;
 
 /**
 * Structure passinfo - contains pseudo-arguments to pass into a function,
@@ -138,11 +134,12 @@ char **cmd_buf;
 int cmd_buf_type;
 int readfd;
 int histcount;
-} info_t;
+} 
+info_t;
 
-{
-struct passinfo my_info = INFO_INIT;
-}
+#define INFO_INIT \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0}
 
 /**
  * struct builtin - It contains a builtin string and related function
