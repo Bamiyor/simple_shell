@@ -24,7 +24,7 @@ new_head->num = num;
 
 if (str)
 {
-new_head->str = _strdup(str);
+new_head->str = strdup(str);
 if (!new_head->str)
 {
 free(new_head);
@@ -62,7 +62,7 @@ new_node->num = num;
 
 if (str)
 {
-new_node->str = _strdup(str);
+new_node->str = strdup(str);
 if (!new_node->str)
 {
 free(new_node);
@@ -96,7 +96,7 @@ size_t i = 0;
 
 while (h)
 {
-_puts(h->str ? h->str : "(nil)");
+_eputs(h->str ? h->str : "(nil)");
 _puts("\n");
 h = h->next;
 i++;
