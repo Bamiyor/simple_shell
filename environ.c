@@ -1,95 +1,92 @@
 #include "shell.h"
 
-/*
- * Function: print_environment
+/**
+ * _myenv - prints the current environment
+ * @info: the structure containing potential arguments. Used to maintain
+ *          constant function prototype.
+ * Return: Always 0
+ */
+int _myenv(info_t *info)
+{
+print_list_str(info->env);
+return (0);
+}
+
+/**
+ * _getenv - this gets the value of an environ variable
+ * @info: Structure containing potential arguments. Used to maintain
+ * @name: env var name
  *
- * print_environment : prints the current environment
- * @env: The environment variables
+ * Return: the value
  */
-
-void print_environment(char **env)
+char *_getenv(info_t *info, const char *name)
 {
-	for (int i = 0; char[i] != NULL; i++)
-	{
-		printf("%s\n", env[i]);
-	}
+list_t *node = info->env;
+char *p;
+
+while (node)
+{
+p = starts_with(node->str, name);
+if (p && *p)
+return (p);
+node = node->next;
+}
+return (NULL);
 }
 
 /**
- * find_environment_variable - Find the value of an environment variable
- * @env: The environment variables
- * @name: The name of the environment variable to find
- * Return: The value of the environment variable or NULL if not found
+ * _mysetenv - Initialize a new environment variable,
+ *             or modify an existing one
+ * @info: the structure containing potential arguments. Used to maintain
+ *        constant function prototype.
+ *  Return: Always 0
  */
-
-char find_environment_variable(char **env, const char *name)
+int _mysetenv(info_t *info)
 {
-	for (int i = 0; char[i] != NULL; i++)
-	{
-		if (strchr(env[i], name) = env[i])
-		{
-			char *value = strchr(env[i], '=') + 1;
-
-			return value;
-			}
-	}
-	return NULL;
+if (info->argc != 3)
+{
+_eputs;
+return (1);
+}
+if (_setenv(info, info->argv[1], info->argv[2]))
+return (0);
+return (1);
 }
 
 /**
- * set_environment_variable - Set or modify an environment variable
- * @env: The environment variables
- * @name: The name of the environment variable
- * @value: the value to set
- * Return: 0 if successful, -1 if an error occurs
+ * _myunsetenv - Remove an environment variable
+ * @info: Structure containing potential arguments. Used to maintain
+ *        constant function prototype.
+ *  Return: Always 0
  */
-
-int set_environment_variable(char **env, const char *name, const char *value)
+int _myunsetenv(info_t *info)
 {
-	char variable = find_environment_variable(env, name);
+int i;
 
-	if (variable)
-	{
-		snprintf(variable, strlen(name) + strlen(value) + 2, "%s=%s", name, value);
+if (info->argc == 1)
+{
+_eputs;
+return (1);
+}
+for (i = 1; i <= info->argc; i++)
+_unsetenv(info, info->argv[i]);
 
-			return (0);
-	}
-	return (-1);
+return (0);
 }
 
 /**
- * unset_environment_variable - Remove an environment variable
- * @env: The environment variables
- * @name: The name of the environment variable to remove
- * Return: 0 if successful, -1 if the variable is not found
+ * populate_env_list - populates env linked list
+ * @info: Structure containing potential arguments. Used to maintain
+ *          constant function prototype.
+ * Return: Always 0
  */
+int populate_env_list(info_t *info)
+{
+list_t *node = NULL;
+size_t i;
 
-int unset_environment_variable(char **env, const char *name)
-{
-	if (int i = 0; env[i] != NULL; i++)
-	{
-		if (strstr(env[i], name) == env[i])
-		{
-			if (int j = i; env[j] != NULL; j++)
-			{
-				env[j] = env[j + 1];
-			}
-			return (0);
-		}
-	}
-	return (-1);
-}
-
-/**
- * populate_environment - Populates the environment variables
- * @env: The environment variables
- * @environ: The original environment variables
- */
-void populate_environment(char *env, char *environ)
-{
-	for (int i = 0; environ[i] != NULL; i++)
-{
-	env[i] = strdup(char[i]);
-}
-env[i] == NULL;
+for (i = 0; environ[i]; i++)
+add_node_end(&node, environ[i], 0);
+info->env = node;
+return (0);
 }

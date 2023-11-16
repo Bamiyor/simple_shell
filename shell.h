@@ -185,9 +185,10 @@ int _myalias(info_t *info);
  * environ.c
  */
 
-char **get_environ(info_t *info);
-int _unsetenv(info_t *info, char *var);
-int _setenv(info_t *info, char *var, char *value);
+int _myenv(info_t *info);
+char *_getenv(info_t *info, const char *name);
+int _mysetenv(info_t *info);
+int populate_env_list(info_t *info);
 
 /**
  * exec.c
