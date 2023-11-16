@@ -321,6 +321,13 @@ ssize_t get_input(info_t *info);
 ssize_t read_buf(info_t *info, char *buf, size_t *i);
 void sigintHandler(__attribute__((unused)) int sig_num);
 
+/**
+ * atoi.c
+ */
+
+int interactive(info_t *info);
+int _isalpha(int c);
+int _atoi(char *s);
 
 /**
  * LLops.c
