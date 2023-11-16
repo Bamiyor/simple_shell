@@ -191,6 +191,14 @@ int _mysetenv(info_t *info);
 int populate_env_list(info_t *info);
 
 /**
+ * builtincd.c
+ */
+
+int _myexit(info_t *info);
+int _mycd(info_t *info);
+int _myhelp(info_t *info);
+
+/**
  * exec.c
  */
 
