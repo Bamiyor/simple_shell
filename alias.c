@@ -8,34 +8,29 @@
 
 int displayCommandHistory(info_t *commandInfo)
 {
-printListWithLineNumbers(commandInfo->history);
+print_alias(commandInfo->history);
 return (0);
 }
 
 /**
 * removeAlias - Remove an alias from the list.
 * @commandInfo: Parameter struct.
-* @aliasStr: The alias string to be removed.
+* @str: The alias string to be removed.
 * Return: 0 on success, 1 on error
 */
-int removeAlias(info_t *commandInfo, char *aliasStr)
+int removeAlias(info_t *commandInfo, char *str)
 {
 char *p, c;
 int result;
 
-p = findCharacter(aliasStr, '=');
+p = _strchr(str, '=');
 if (!p)
 return (1);
 c = *p;
 *p = 0;
-<<<<<<< HEAD
-result = deleteAliasNode(&(commandInfo->alias))
-int index = nodeStartsWith(commandInfo->alias, aliasStr, -1);
-=======
-result = deleteAliasNode(&(commandInfo->alias)),
-getAliasNodeIndex(commandInfo->alias, nodeStartsWith
-(commandInfo->alias, aliasStr, -1));
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
+result = delete_node_at_index(&(commandInfo->alias),
+get_node_index(commandInfo->alias, starts_with
+(commandInfo->alias, str, -1)));
 *p = c;
 return (result);
 }
@@ -43,41 +38,41 @@ return (result);
 /**
 * createAlias - Create an alias for a command.
 * @commandInfo: Parameter struct.
-* @aliasStr: The alias string to be created.
+* @str: The alias string to be created.
 * Return: 0 on success, 1 on error
 */
 
-int createAlias(info_t *commandInfo, char *aliasStr)
+int createAlias(info_t *commandInfo, char *str)
 {
 char *p;
 
-p = findCharacter(aliasStr, '=');
+p = _strchr(str, '=');
 if (!p)
 return (1);
 if (!*++p)
-return (removeAlias(commandInfo, aliasStr));
+return (remove_alias(commandInfo, str));
 
-removeAlias(info, aliasStr);
-return (addAliasNodeEnd(&(commandInfo->alias), aliasStr, 0) == NULL);
+remove_alias(commandInfo, str);
+return (add_node_end(&(commandInfo->alias), str, 0) == NULL);
 }
 /**
 * printAliasString - Print an alias string.
-* @aliasNode: The alias node to be printed.
+* @node: The alias node to be printed.
 * Return: 0 on success, 1 on error
 */
 
-int printAliasString(aliasNode_t *aliasNode)
+int printAliasString(list_t *node)
 {
 char *p = NULL, *alias = NULL;
 
-if (aliasNode)
+if (node)
 {
-p = findCharacter(aliasNode->str, '=');
-for (alias = aliasNode->str; alias <= p; alias++)
-printCharacter(*alias);
-printCharacter('\'');
-printString(p + 1);
-printString("'\n");
+p = _strchr(node->str, '=');
+for (alias = node->str; alias <= p; alias++)
+_putchar(*alias);
+_putchar('\'');
+_puts(p + 1);
+_puts("'\n");
 return (0);
 }
 return (1);
@@ -93,29 +88,26 @@ int manageAliases(info_t *commandInfo)
 {
 int i = 0;
 char *p = NULL;
-aliasNode_t *aliasNode = NULL;
+list_t *node = NULL;
 if (commandInfo->argc == 1)
 {
-aliasNode = commandInfo->alias;
-while (aliasNode)
+node = commandInfo->alias;
+while (node)
 {
-printAliasString(aliasNode);
-aliasNode = aliasNode->next;
+printAlias_string(node);
+node = node->next;
 }
 return (0);
 }
 for (i = 1; commandInfo->argv[i]; i++)
 {
-p = findCharacter(commandInfo->argv[i], '=');
+p = _strchr(commandInfo->argv[i], '=');
 if (p)
-createAlias(info_t, commandInfo->argv[i]);
+createAlias(commandInfo, commandInfo->argv[i]);
 else
-<<<<<<< HEAD
-printf("%d", P(nodeS(commandInfo->alias, commandInfo->argv[i], '=')));
-=======
-printAliasString(nodeStartsWith(commandInfo->alias,
+{
+print_alias(nodeStartsWith(commandInfo->alias,
 commandInfo->argv[i], '='));
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 }
 return (0);
 }

@@ -338,7 +338,7 @@ ssize_t indexOfListNode(list_t *head, list_t *node);
  * shell.c
  */
 
-int main(int argc, char **argv[]);
+int main(int argc, char **argv);
 
 /**
  * tokenizer.c
