@@ -100,6 +100,7 @@ return (count);
  * Return: String.
  */
 
+<<<<<<< HEAD
 /**
 * Function: convertNumber - Converter function, a clone of itoa.
 * num: Number.
@@ -107,6 +108,8 @@ return (count);
 * flags: Argument flags.
 * Return: String.
 */
+=======
+>>>>>>> 9247e40a69bceaccab3625a9dd09ffadd7c6d1d8
 char *convertNumber(long int num, int outputBase, int flags)
 {
 static char *array;
@@ -121,7 +124,20 @@ n = -num;
 sign = '-';
 }
 
+<<<<<<< HEAD
 array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+=======
+char *characterSet;
+if (flags & CONVERT_LOWERCASE)
+{
+characterSet = lowercaseArray;
+}
+else
+{
+characterSet = uppercaseArray;
+}
+"0123456789abcdef" : "0123456789ABCDEF";
+>>>>>>> 9247e40a69bceaccab3625a9dd09ffadd7c6d1d8
 ptr = &buffer[49];
 *ptr = '\0';
 
@@ -136,10 +152,15 @@ return (ptr);
 }
 
 /**
+<<<<<<< HEAD
  * HEAD
+=======
+>>>>>>> 9247e40a69bceaccab3625a9dd09ffadd7c6d1d8
  * removeComments - Replaces the first instance of '#' with '\0'.
  * @text: Address of the string to modify.
+ * @buf: buffer
  */
+<<<<<<< HEAD
 /*
 * Function: removeComments - Replaces the first instance of '#' with '\0'.
 * @text: Address of the string to modify.
@@ -147,6 +168,10 @@ return (ptr);
 */
 
 void removeComments(char *buf)
+=======
+
+void removeComments(char *text)
+>>>>>>> 9247e40a69bceaccab3625a9dd09ffadd7c6d1d8
 {
 int i;
 
