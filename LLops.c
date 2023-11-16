@@ -97,7 +97,7 @@ size_t i = 0;
 while (h)
 {
 _eputs(h->str ? h->str : "(nil)");
-_puts("\n");
+_eputs("\n");
 h = h->next;
 i++;
 }

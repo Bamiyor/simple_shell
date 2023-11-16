@@ -10,7 +10,7 @@ char **get_environ(info_t *info)
 {
 if (!info->environ || info->env_changed)
 {
-info->environ =linled_list_to_strings(info->env);
+info->environ = linked_list_to_strings(info->env);
 info->env_changed = 0;
 }
 
@@ -67,12 +67,12 @@ char *p;
 if (!var || !value)
 return (0);
 
-buf = malloc(_strlen(var) + _strlen(value) + 2);
+buf = malloc(strlen(var) + strlen(value) + 2);
 if (!buf)
 return (1);
-_strcpy(buf, var);
-_strcat(buf, "=");
-_strcat(buf, value);
+_strncpy(buf, var);
+_strncat(buf, "=");
+_strncat(buf, value);
 node = info->env;
 while (node)
 {

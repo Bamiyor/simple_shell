@@ -19,25 +19,16 @@ return (length);
 }
 
 /**
-<<<<<<< HEAD
- * strtow2 - splits a string into words based on a single delimiter
- * @str: the input string
- * @d: the delimiter
- *
- * Return: a pointer to an array of strings, or NULL on failure
- */ 
-=======
 * compare_string- Performs lexicographic comparison of two strings.
 * @s1: the first strang
 * @s2: the second strang
 *
 * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
 */
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 
 int compare_strings(char *s1, char *s2)
 {
-<<<<<<< HEAD
+
 	if (str == NULL || str[0] == '\0')
 	{
 		return (NULL);
@@ -80,7 +71,7 @@ int compare_strings(char *s1, char *s2)
 	s[a] = NULL;
 	return (s);
 }
-=======
+
 while (*s1 && *s2)
 {
 if (*s1 != *s2)
@@ -118,8 +109,6 @@ return ((char *)haystack);
 */
 char *concatenate_strings(char *dest, char *src)
 {
-char *result = dest;
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 
 while (*dest)
 dest++;

@@ -42,16 +42,16 @@ if (!ret)
 return (NULL);
 for (length++; length--;)
 ret[length] = *--str;
-return (result);
+return result;
 }
 
 /**
-*print _string - Prints an input string
+*print_string - Prints an input string
 *@str: the string to be printed
 *
 * Return: Nothing
 */
-void print _string(char *str)
+void print_string(char *str)
 {
 int index = 0;
 

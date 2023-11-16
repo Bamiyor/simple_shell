@@ -19,7 +19,7 @@ asm ("mov %1, %0\n\t"
 
 if (ac == 2)
 {
-fd = open(av[1], O_RDONLY);
+file_descriptor = open(av[1], O_RDONLY);
 if (file_descriptor == -1)
 {
 if (errno == EACCES)
@@ -38,7 +38,7 @@ return (EXIT_FAILURE);
 info->readfd = file_descriptor;
 }
 populate_env_list(info);
-read_history(info);
+readHistory(info);
 shell_loop(info, av);
 return (EXIT_SUCCESS);
 }
