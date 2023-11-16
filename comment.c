@@ -98,16 +98,7 @@ return (count);
  * Return: String.
  */
 
-char *convertNumber(long int num, int base, int flags)
-=======
-* Function: convertNumber - Converter function, a clone of itoa.
-* @num: Number.
-* @outputBase: Base.
-* @flags: Argument flags.
-* Return: String.
-*/
 char *convertNumber(long int num, int outputBase, int flags)
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 {
 static char *array;
 static char buffer[50];
@@ -121,10 +112,7 @@ if (!(flags & CONVERT_UNSIGNED) && num < 0)
 n = -num;
 sign = '-';
 }
-<<<<<<< HEAD
 
-char *cs = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-=======
 char *characterSet;
 if (flags & CONVERT_LOWERCASE)
 {
@@ -135,7 +123,6 @@ else
 characterSet = uppercaseArray;
 }
 "0123456789abcdef" : "0123456789ABCDEF";
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 ptr = &buffer[49];
 *ptr = '\0';
 
@@ -150,17 +137,11 @@ return (ptr);
 }
 
 /**
-<<<<<<< HEAD
  * removeComments - Replaces the first instance of '#' with '\0'.
  * @text: Address of the string to modify.
+ * @buf: buffer
  */
 
-=======
-* Function: removeComments - Replaces the first instance of '#' with '\0'.
-* @text: Address of the string to modify.
-* @buf: buffer
-*/
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 void removeComments(char *text)
 {
 char buf[MAX_SIZE];

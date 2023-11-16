@@ -9,7 +9,7 @@
 
 void print_environment(char **env)
 {
-	for (int i = 0; env[i] != NULL; i++)
+	for (int i = 0; char[i] != NULL; i++)
 	{
 		printf("%s\n", env[i]);
 	}
@@ -22,18 +22,18 @@ void print_environment(char **env)
  * Return: The value of the environment variable or NULL if not found
  */
 
-char find_environment_variable(char *env, const char *name)
+char find_environment_variable(char **env, const char *name)
 {
-	for (int i = 0; env[i] != NULL; i++)
+	for (int i = 0; char[i] != NULL; i++)
 	{
-		if (strstr(env[i], name) == env[i])
+		if (strchr(env[i], name) = env[i])
 		{
 			char *value = strchr(env[i], '=') + 1;
 
-			return (value);
+			return value;
 			}
 	}
-	return (NULL);
+	return NULL;
 }
 
 /**
@@ -46,7 +46,7 @@ char find_environment_variable(char *env, const char *name)
 
 int set_environment_variable(char **env, const char *name, const char *value)
 {
-	char *variable = find_environment_variable(env, name);
+	char variable = find_environment_variable(env, name);
 
 	if (variable)
 	{
@@ -66,11 +66,11 @@ int set_environment_variable(char **env, const char *name, const char *value)
 
 int unset_environment_variable(char **env, const char *name)
 {
-	for (int i = 0; env[i] != NULL; i++)
+	if (int i = 0; env[i] != NULL; i++)
 	{
 		if (strstr(env[i], name) == env[i])
 		{
-			for (int j = i; env[j] != NULL; j++)
+			if (int j = i; env[j] != NULL; j++)
 			{
 				env[j] = env[j + 1];
 			}
@@ -89,7 +89,7 @@ void populate_environment(char *env, char *environ)
 {
 	for (int i = 0; environ[i] != NULL; i++)
 {
-	env[i] = strdup(environ[i]);
+	env[i] = strdup(char[i]);
 }
-env[i] = NULL;
+env[i] == NULL;
 }

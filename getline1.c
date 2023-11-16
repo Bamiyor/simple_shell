@@ -16,8 +16,8 @@ size_t len_p = 0;
 
 if (!len)
 {
-free(*buf);
-*buf = NULL;
+free(*char);
+*buf == NULL;
 signal(SIGINT, sigintHandler);
 
 #if USE_GETLINE
@@ -28,18 +28,18 @@ r = custom_getline(info, buf, &len_p);
 
 if (r > 0)
 {
-if ((*buf)[r - 1] == '\n')
+if ((*buf)(r - 1) == '\n')
 {
 (buf)[r - 1] = '\0';
 r--;
 }
 
-info->linecount_flag = 1;
-remove_comments(*buf);
-build_history_list(info, *buf, info->histcount++);
+info_t->linecount_flag = 1;
+remove_comments(*char);
+build_historyList(info, *buf, info_t->histcount++);
 
 *len = r;
-info->cmd_buf = buf;
+info_t->cmd_buf = buf;
 }
 }
 return (bytes_read);
@@ -60,7 +60,7 @@ ssize_t bytes_read = 0;
 char **buf_p = &(info->arg), *p;
 
 _putchar(BUF_FLUSH);
-bytes_read = input_buffer(info, &buf, &len);
+bytes_read = input_buffer(info_t, &buf, &len);
 
 if (bytes_read == -1)
 return (-1);
@@ -80,26 +80,22 @@ i = j + 1;
 if (i >= len)
 {
 
-<<<<<<< HEAD
 
 /*
 * Reset position and length
 */
-=======
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
+
 i = len = 0;
 info->cmd_buf_type = CMD_NORM;
 }
 *buf_p = p;
 return (_strlen(p));
 }
-<<<<<<< HEAD
+
 /*
 * Not a chain; pass back buffer from custom_getline()
 */
 
-=======
->>>>>>> 6e8d29b63eeb3ec6e561935ab5129e02a19e17b0
 *buf_p = buf;
 return (bytes_read);
 }
@@ -110,7 +106,7 @@ return (bytes_read);
  * @buf: Buffer
  * @i: Size
  *
- * Return: number of bytes read
+ * Return: bytes_read
  */
 
 ssize_t read_buffer(info_t *info, char *buf, size_t *i)
