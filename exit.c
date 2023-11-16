@@ -74,7 +74,7 @@ char *_strchr(const char *s, int c)
 	{
 		if (*s == c)
 		{
-			return (s);
+			return (char *)s;
 		}
 		s++;
 	}
